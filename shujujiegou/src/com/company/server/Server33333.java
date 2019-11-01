@@ -1,9 +1,6 @@
 package com.company.server;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
@@ -218,7 +215,7 @@ public class Server33333 {
 
         /**
          * 客户端处理线程的构造函数
-         * @param socket 与客户端通信的socket
+         * socket 与客户端通信的socket
          */
         public ClientHandler(Socket sock){
             socket = sock;

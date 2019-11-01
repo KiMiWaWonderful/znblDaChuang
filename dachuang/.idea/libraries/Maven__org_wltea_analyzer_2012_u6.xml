@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.wltea:analyzer:2012_u6">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wltea/analyzer/2012_u6/analyzer-2012_u6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wltea/analyzer/2012_u6/analyzer-2012_u6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wltea/analyzer/2012_u6/analyzer-2012_u6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

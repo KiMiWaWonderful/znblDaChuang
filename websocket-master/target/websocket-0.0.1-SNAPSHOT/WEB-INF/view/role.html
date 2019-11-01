@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>role</title>
+</head>
+<body>
+    选择角色 <br>
+    <a href="http://localhost:8080/choiceRole/0">反方</a>
+    <a href="http://localhost:8080/choiceRole/1">正方</a>
+    <a href="http://localhost:8080/choiceRole/2">观众</a>
+
+    <br><br>
+
+    <div class="static-item">
+        <div class="meta">选择的辩论题</div>
+    <script>
+        <%=request.getAttribute("user");%>
+    </script>
+    </div>
+</body>
+</html>

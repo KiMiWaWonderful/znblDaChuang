@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="TrySerialPort:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="TrySerialPort.war">
+      <element id="artifact" artifact-name="TrySerialPort:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,24 @@
+server:
+
+  port: 8764
+
+
+
+eureka:
+
+  instance:
+
+    hostname: eureka8764.com
+#    instance-id: eurekaClient
+#    prefer-ip-address: true     #访问路径可以显示IP地址
+
+  client:
+
+#    registerWithEureka: false
+#
+#    fetchRegistry: false
+
+    serviceUrl:
+
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://eureka8761.com:8761/eureka/,http://eureka8763.com:8763/eureka/,http://eureka8764.com:8764/eureka/

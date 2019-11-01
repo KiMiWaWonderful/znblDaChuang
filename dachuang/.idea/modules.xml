@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dachuang.iml" filepath="$PROJECT_DIR$/dachuang.iml" />
+      <module fileurl="file://E:/大创/项目代码/znbl/znbl.iml" filepath="E:/大创/项目代码/znbl/znbl.iml" />
+    </modules>
+  </component>
+</project>

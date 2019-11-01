@@ -57,18 +57,7 @@
 
         <!-- redis-->
 
-        <!-- <commons.version>2.4.2</commons.version>-->
 
-        <!-- environment setting -->
-        <!--
-        <jdk.version>1.6</jdk.version>
-        <tomcat.version>2.2</tomcat.version>
-        <jetty.version>7.6.14.v20131031</jetty.version>
-        <webserver.port>8181</webserver.port>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <downloadSources>true</downloadSources>
-        <jetty.stopPort>9081</jetty.stopPort>
-        -->
     </properties>
 
 
@@ -248,63 +237,7 @@
         </dependency>
         <!-- WEB end -->
 
-        <!-- CACHE begin -->
-        <!--
-        <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache-core</artifactId>
-            <version>${ehcache.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache-web</artifactId>
-            <version>${ehcache-web.version}</version>
-        </dependency>
 
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>2.5.1</version>
-        </dependency>
-        -->
-        <!-- CACHE end -->
-
-        <!-- SECURITY begin -->
-        <!--
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-            <version>${shiro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-            <version>${shiro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-cas</artifactId>
-            <version>${shiro.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-web</artifactId>
-            <version>${shiro.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-ehcache</artifactId>
-            <version>${shiro.version}</version>
-        </dependency>
-        -->
-        <!-- SECURITY end -->
 
         <!-- LOGGING begin -->
         <dependency>
@@ -364,14 +297,6 @@
             </exclusions>
         </dependency>
 
-        <!-- google java lib -->
-        <!--
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-        -->
 
         <!-- jackson json -->
         <dependency>
@@ -396,148 +321,7 @@
         </dependency>
 
 
-        <!--json-lib -->
-        <!--
-        <dependency>
-            <groupId>net.sf.json-lib</groupId>
-            <artifactId>json-lib</artifactId>
-            <version>2.4</version>
-            <classifier>jdk15</classifier>
-        </dependency>
-        -->
 
-
-        <!-- gson -->
-        <!--
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>${gson.version}</version>
-        </dependency>
-        -->
-
-        <!-- xstream xml -->
-        <!--
-        <dependency>
-            <groupId>com.thoughtworks.xstream</groupId>
-            <artifactId>xstream</artifactId>
-            <version>${xstream.version}</version>
-        </dependency>
-        -->
-
-        <!-- pojo copy -->
-        <!--
-        <dependency>
-            <groupId>net.sf.dozer</groupId>
-            <artifactId>dozer</artifactId>
-            <version>${dozer.version}</version>
-        </dependency>
-        -->
-
-        <!-- freemarker engine -->
-        <!--
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>${freemarker.version}</version>
-        </dependency>
-        -->
-
-        <!-- email -->
-        <!--
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.4.7</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.activation</groupId>
-            <artifactId>activation</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-        -->
-
-        <!-- poi office -->
-        <!--
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>${poi.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>${poi.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml-schemas</artifactId>
-            <version>${poi.version}</version>
-        </dependency>
-        -->
-
-        <!-- image util -->
-        <!--
-        <dependency>
-            <groupId>com.drewnoakes</groupId>
-            <artifactId>metadata-extractor</artifactId>
-            <version>2.6.2</version>
-        </dependency>
-        -->
-
-        <!-- 条形码、二维码生成 -->
-        <!--
-        <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>core</artifactId>
-            <version>2.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>javase</artifactId>
-            <version>2.2</version>
-        </dependency>
-        -->
-
-        <!-- 中文分词 -->
-        <!--
-        <dependency>
-            <groupId>org.wltea</groupId>
-            <artifactId>analyzer</artifactId>
-            <version>2012_u6</version>
-        </dependency>
-        -->
-        <!-- GENERAL UTILS end -->
-
-        <!-- CKFinder begin -->
-        <!--
-        <dependency>
-            <groupId>net.coobird</groupId>
-            <artifactId>thumbnailator</artifactId>
-            <version>0.4.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ckfinder</groupId>
-            <artifactId>apache-ant-zip</artifactId>
-            <version>2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ckfinder</groupId>
-            <artifactId>ckfinder</artifactId>
-            <version>2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ckfinder</groupId>
-            <artifactId>ckfinderplugin-fileeditor</artifactId>
-            <version>2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ckfinder</groupId>
-            <artifactId>ckfinderplugin-imageresize</artifactId>
-            <version>2.3</version>
-        </dependency>
-        -->
-        <!-- CKFinder end -->
 
         <!-- TEST begin -->
         <dependency>
@@ -552,67 +336,6 @@
         </dependency>
         <!-- TEST end -->
 
-        <!-- lucene begin -->
-        <!--
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-core</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.compass-project</groupId>
-            <artifactId>compass</artifactId>
-            <version>2.2.0</version>
-        </dependency>
-        -->
-
-        <!-- <dependency> <groupId>net.paoding</groupId> <artifactId>paoding-analysis</artifactId>
-            <version>3.0</version> </dependency> -->
-        <!-- lucene end -->
-
-        <!-- User Agent -->
-        <!--
-        <dependency>
-            <groupId>bitwalker</groupId>
-            <artifactId>UserAgentUtils</artifactId>
-            <version>1.13</version>
-        </dependency>
-        -->
-
-        <!--
-        <dependency>
-            <groupId>commons-httpclient</groupId>
-            <artifactId>commons-httpclient</artifactId>
-            <version>3.1</version>
-        </dependency>
-        -->
-        <!-- 下面两个是微信集成包 -->
-        <!-- <dependency> <groupId>com.github.sd4324530</groupId> <artifactId>fastweixin</artifactId>
-            <version>1.3.7</version> </dependency> -->
-        <!--
-        <dependency>
-            <groupId>me.chanjar</groupId>
-            <artifactId>weixin-java-mp</artifactId>
-            <version>1.3.3</version>
-        </dependency>
-        -->
-
-        <!-- 使用 Jetty JSP引擎 <dependency> <groupId>org.eclipse.jetty</groupId> <artifactId>jetty-jsp</artifactId>
-            <version>${jetty.version}</version> <exclusions> <exclusion> <groupId>org.eclipse.jetty.orbit</groupId>
-            <artifactId>javax.servlet</artifactId> </exclusion> <exclusion> <groupId>org.eclipse.jetty.orbit</groupId>
-            <artifactId>org.apache.taglibs.standard.glassfish</artifactId> </exclusion>
-            </exclusions> </dependency> -->
-
-        <!-- jwt -->
-        <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
-        <!--
-        <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
-            <version>2.2.0</version>
-        </dependency>
-        -->
 
         <!-- redis-->
         <!-- config redis data and client jar-->

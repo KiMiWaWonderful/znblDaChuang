@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        .dropdown{
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+            padding:0px;
+            cursor: pointer;
+            outline: 0;
+            border:1px solid #8a8a8a;
+        }
+        .dropdown .dp-list{
+            list-style: none;
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+            border-left: 1px solid #8a8a8a;
+            border-right: 1px solid #8a8a8a;
+            border-bottom: 1px solid #8a8a8a;
+            position: relative;
+            left: -1px;
+
+        }
+        .dropdown .dp-list:hover{
+            background: #8a8a8a;
+            color: #ffffff;
+        }
+        .dropdown .dp-img{
+            float: right;
+            width: 20px;
+            height: 30px;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            border-left: 1px solid #8a8a8a;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+    <!--JQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<ul class="dropdown" tabindex="1">
+    <!-- 用于取消多次快速点击dp-select 后选中“请选择标签” 的文字 -->
+    <div class="dp-select" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
+        <span>请选择标签</span>
+        <div class="dp-img">
+            <img src="images/dp-down.png" width="15" height="20">
+        </div>
+    </div>
+
+    <li class="dp-list hide">标签一</li>
+    <li class="dp-list hide">标签二</li>
+    <li class="dp-list hide">标签三</li>
+    <li class="dp-list hide">标签四</li>
+</ul>
+<script type="text/javascript">
+    $('.dropdown .dp-select').on('click',function(){
+        if($('.dropdown li').hasClass('hide')){
+            //点击后更改图标
+            $('.dp-img img').attr('src','images/dp-up.png');
+            //显示li标签
+            $('.dropdown li').removeClass('hide');
+            //加点点击样式
+            $('.dropdown').css('border','1px solid lightblue');
+            $('.dropdown .dp-img').css('border-left','1px solid lightblue');
+        }else{
+            //点击后更改图标
+            $('.dp-img img').attr('src','images/dp-down.png');
+            //显示li标签
+            $('.dropdown li').addClass('hide');
+            //继续点击样式
+            $('.dropdown').css('border','1px solid #8a8a8a');
+            $('.dropdown .dp-img').css('border-left','1px solid #8a8a8a');
+        }
+    });
+    //点击li 标签后发生的事件
+    $('.dropdown li').on('click',function(){
+        var text = $(this).text();
+        console.log(text);
+        $('.dp-select span').text(text);
+        //点击后更改图标
+        $('.dp-img img').attr('src','images/dp-down.png');
+        //显示li标签
+        $('.dropdown li').addClass('hide');
+        //继续点击样式
+        $('.dropdown').css('border','1px solid #8a8a8a');
+        $('.dropdown .dp-img').css('border-left','1px solid #8a8a8a');
+
+    });
+    //失去焦点发生的事件
+    $('.dropdown').blur(function(){
+        //点击后更改图标
+        $('.dp-img img').attr('src','images/dp-down.png');
+        //显示li标签
+        $('.dropdown li').addClass('hide');
+        //继续点击样式
+        $('.dropdown').css('border','1px solid #8a8a8a');
+        $('.dropdown .dp-img').css('border-left','1px solid #8a8a8a');
+    });
+</script>
+</body>
+</html>

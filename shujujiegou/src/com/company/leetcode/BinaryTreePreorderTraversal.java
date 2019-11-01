@@ -2,7 +2,6 @@ package com.company.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class BinaryTreePreorderTraversal {
 
@@ -52,27 +51,27 @@ public class BinaryTreePreorderTraversal {
 //
 //    }
 
-    public static List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        if(root == null){
-            return res;
-        }
-
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode cur = root;
-        while (cur != null || !stack.empty()){
-            if(cur !=null){
-                res.add(cur.val);
-                stack.push(cur);
-                cur= cur.left;
-            }else {
-                cur = stack.pop();
-                cur = cur.right;
-            }
-        }
-
-        return res;
-    }
+//    public static List<Integer> preorderTraversal(TreeNode root) {
+////        List<Integer> res = new ArrayList<>();
+////        if(root == null){
+////            return res;
+////        }
+////
+////        Stack<TreeNode> stack = new Stack<>();
+////        TreeNode cur = root;
+////        while (cur != null || !stack.empty()){
+////            if(cur !=null){
+////                res.add(cur.val);
+////                stack.push(cur);
+////                cur= cur.left;
+////            }else {
+////                cur = stack.pop();
+////                cur = cur.right;
+////            }
+////        }
+////
+////        return res;
+////    }
 
 //    public List<Integer> preorderTraversal(TreeNode root) {
 //
@@ -99,10 +98,30 @@ public class BinaryTreePreorderTraversal {
 //        return res;
 //    }
 
+    public static List<Integer> preorderTraversal(TreeNode root) {
+//        ArrayList<Integer> res = new ArrayList<Integer>();
+//        if(root == null)
+//            return res;
+//        preorderTraversal(root.left);
+//        preorderTraversal(root.right);
+//        return res;
+
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        preorderTraversal(root, res);
+        return res;
+    }
+
+    private static void preorderTraversal(TreeNode node, List<Integer> list){
+        if(node != null){
+            list.add(node.val);
+            preorderTraversal(node.left, list);
+            preorderTraversal(node.right, list);
+        }
+    }
 
     public static void main(String[] args) {
 
-        Integer[] nums = {1,null,2,3};
+        Integer[] nums = {1,2,3,4,5,null,7};
         TreeNode root = ConstructTree.constructTree(nums);
         List<Integer> res = preorderTraversal(root);
         for (int num:res) {

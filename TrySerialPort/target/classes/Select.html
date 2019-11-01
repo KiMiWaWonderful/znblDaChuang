@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    <!-- onchange:当下拉列表选择的内容改变时,触发onchange事件,selected:表示默认选中第一个-->
+    部门:
+    <select name="dept" id="dept" onchange="show(this.value)">
+        <option value="技术部" selected>技术部</option>
+        <option value="测试部">测试部</option>
+        <option value="销售部">销售部</option>
+        <option value="财务部">财务部</option>
+    </select>
+
+    选择后的结果:
+    <input type="text" name="result" id="result" value="">
+</form>
+
+<!---->
+
+
+<script type="text/javascript">
+    function show(){
+        var deptNode=document.getElementById("dept");
+        var resultNode=document.getElementById("result");
+        resultNode.value=deptNode.value;
+    }
+</script>
+
+</body>
+</html>

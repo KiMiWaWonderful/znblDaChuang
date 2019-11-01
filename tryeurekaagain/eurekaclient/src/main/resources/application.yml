@@ -1,0 +1,33 @@
+server:
+
+  port: 8762
+
+
+
+spring:
+
+  application:
+
+    name: service-hi
+
+
+
+eureka:
+
+  client:
+    hostname: ${spring.cloud.client.address}
+    instance-id: eurekaClient
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+    serviceUrl:
+
+      defaultZone: http://localhost:8761/eureka/
+
+info:
+  app:
+    name: kimi-microservicecloud
+  company:
+    name: www.kimi.com
+  build:
+    artifactId: $project.artifactId$
+    version: $project.version$

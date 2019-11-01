@@ -1,0 +1,408 @@
+
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+    <style type="text/css">
+
+        body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+
+        #allmap{height:500px;width:100%;}
+
+    </style>
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qVixkQ96uQ7eQ2WpRYzGeaV4LfOqByaw"></script>
+
+    <title>城市名定位</title>
+
+</head>
+
+<body>
+
+<div id="allmap"></div>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+    // 百度地图API功能
+
+    var map = new BMap.Map("allmap");// 创建Map实例
+
+    map.centerAndZoom(new BMap.Point(116.331398,39.897445),12);// 初始化地图,设置中心点坐标和地图级别
+
+    map.enableScrollWheelZoom(true);//开启鼠标滚轮缩放
+
+    map.addControl(new BMap.NavigationControl()); //添加平移缩放控件
+
+    map.addControl(new BMap.ScaleControl());  //添加比例尺控件
+
+    map.addControl(new BMap.OverviewMapControl({isOpen: true}));  //添加缩略地图控件
+
+
+
+    // 从后台获取物资位置信息，并显示在地图上
+
+    $.ajax({
+
+        async:false,
+
+        cache:true,
+
+        url: "接口名称",
+
+        type: 'GET',
+
+        success: function(result){
+
+
+
+            /*******接口返回数据格式如下所示：
+
+             [
+
+             {"terminalPhoneNumber":"010648744548","vehicleID":"17Y206436H20171124202355","latitude":"34.188237","longitude":"109.002797","height":"1000","speed":"0","direct":"149","timestamp":"20171226101013","vehicleState":"0","demolitionAlarm":"0","ownerID":null,"ownerName":null},
+
+             {"terminalPhoneNumber":"013689249766","vehicleID":"17Y206050E20171115075837","latitude":"34.181929","longitude":"108.997819","height":"1000","speed":"0","direct":"196","timestamp":"20171229160248","vehicleState":"0","demolitionAlarm":"0","ownerID":null,"ownerName":null},
+
+             {"terminalPhoneNumber":"013227083663","vehicleID":"17Y206050E20171115080146","latitude":"34.183384","longitude":"108.995699","height":"1000","speed":"0","direct":"297","timestamp":"20180124134501","vehicleState":"4","demolitionAlarm":"1","ownerID":null,"ownerName":null},
+
+             {"terminalPhoneNumber":"013227083663","vehicleID":"17Y206465E20171125160629","latitude":"34.182493","longitude":"108.995408","height":"1000","speed":"0","direct":"117","timestamp":"20180125162537","vehicleState":"0","demolitionAlarm":"1","ownerID":null,"ownerName":null}
+
+             ]
+
+             ********/
+
+
+
+            if(result != undefined && result.length >0){
+
+                map.panTo(new BMap.Point(result[0].longitude, result[0].latitude));	//将地图的中心点更改为从接口获取的指定的点。
+
+
+
+                var longitude = [], latitude = [], vehicleID = [], alarm = [];
+
+
+
+                for (var i = 0; i < result.length; i++) {
+
+                    //获取每个物资的位置信息及物资的捆包号信息，位置信息用来在地图上显示物资，捆包号用来通过捆包号查询物资详细信息，以在鼠标滑过此物资时显示物资的详细信息。
+
+                    longitude[i] = result[i].longitude;//物资经度
+
+                    latitude[i] = result[i].latitude;//物资纬度
+
+                    vehicleID[i] = result[i].vehicleID;//物资捆包号
+
+                    alarm[i] = result[i].alarm;//物资上的终端被拆除的报警标志信息
+
+
+
+                    var goodsId, goodsName, goodsType, goodsMaterial, goodsWeight, goodsTerminalNum, goodsStatus, pageOrigin, goodsOrigin, goodsPackage;
+
+
+
+                    /*** 通过物资捆包号获取物资详情信息 ***/
+
+                    $.ajax({
+
+                        async:false,
+
+                        cache:true,
+
+                        url: "获取详情的接口?goodsPackage=" + vehicleID[i],
+
+                        type: 'GET',
+
+                        success: function(result){
+
+                            /*******接口返回数据格式如下所示：
+
+                             {
+
+                                 total:1,
+
+                                 root:[
+
+                                     {
+
+                                         "goodsContractreadtime":"2017-12-22 17:43:02",
+
+                                         "goodsId":410,
+
+                                         "goodsMaterial":"HRB500E",
+
+                                         "goodsName":"螺纹钢",
+
+                                         "goodsNumber":1,
+
+                                         "goodsOrder":"210174556",
+
+                                         "goodsOrigin":"钢厂",
+
+                                         "goodsPackage":"17Y206465E20171125160629",
+
+                                         "goodsQrnumber":"",
+
+                                         "goodsQroperator":"",
+
+                                         "goodsRemark":"钢厂直发",
+
+                                         "goodsStatus":"6",
+
+                                         "goodsTerminalNum":"",
+
+                                         "goodsType":"Φ25",
+
+                                         "goodsVehiclenumber":"1578496",
+
+                                         "goodsWarranty":"70463335",
+
+                                         "goodsWeight":3.4649999141693115,
+
+                                         "originName":"河钢承钢"
+
+                                     }
+
+                                 ]
+
+                             }
+
+                             ********/
+
+                            var result = eval('('+ result +')');
+
+                            var resultContent = result.root;
+
+                            if (result.root.length != 0) {
+
+                                goodsId = resultContent[0].goodsId;
+
+                                goodsName = resultContent[0].goodsName;
+
+                                goodsType = resultContent[0].goodsType;
+
+                                goodsMaterial = resultContent[0].goodsMaterial;
+
+                                goodsWeight = (resultContent[0].goodsWeight).toFixed(3);
+
+                                goodsTerminalNum = resultContent[0].goodsTerminalNum;
+
+
+
+                                goodsStatus = resultContent[0].goodsStatus;
+
+                                goodsOrigin = resultContent[0].goodsOrigin;
+
+                                goodsPackage = resultContent[0].goodsPackage;
+
+
+
+                                if (goodsOrigin == "钢厂") {
+
+                                    goodsOrigin = 1;
+
+                                    if (goodsStatus == "0" || goodsStatus == "1"|| goodsStatus == "4") {
+
+                                        pageOrigin = 1;//1.收货管理-->钢厂
+
+                                    }
+
+                                } else if (goodsOrigin == "贸易商") {
+
+                                    goodsOrigin = 2;
+
+                                    if (goodsStatus == "0" || goodsStatus == "1" || goodsStatus == "4") {
+
+                                        pageOrigin = 2;//2.收货管理-->贸易商
+
+                                    }
+
+                                }
+
+
+
+                                if (goodsStatus == "2" || goodsStatus == "3") {
+
+                                    pageOrigin = 3;//3.发货管理-->客户自提
+
+                                } else if (goodsStatus == "8") {
+
+                                    pageOrigin = 6;//6.报表统计-->物资统计-->已完成物资
+
+                                }
+
+
+
+                                /**** 创建物资图标，并在地图上显示物资图标，且鼠标经过物资图标时，显示物资的详细信息 ***/
+
+                                var steelMarker = new BMap.Marker(new BMap.Point(longitude[i],latitude[i]));	//创建物资图标
+
+                                var steelContent = '<div><p style="margin:0;line-height:1.5;font-size:13px;text-indent:2em"><br/>品名：'+goodsName+'<br/>规格：'+goodsType+'<br/>材质：'+goodsMaterial+'<br/>捆包号：'+goodsPackage+'<br/>重量(吨)：'+goodsWeight+'<br/>跟踪器编号：'+goodsTerminalNum+
+
+                                    '<br/><a style="float:right;margin:10px" href="/ILTS/orderDetail/orderDetail.html?id='+goodsId+'&goodsStatus='+goodsStatus+'&pageOrigin='+pageOrigin+'&goodsOrigin='+goodsOrigin+'&goodsPackage='+goodsPackage+'">物资详情</a></p></div>';//物资详情弹出框
+
+                                map.addOverlay(steelMarker); // 将物资图标添加到地图中
+
+                                addMouseoverHandler(steelContent, steelMarker); //添加鼠标滑过物资图标时显示物资详情的事件
+
+
+
+                                /**** 创建报警图标，并在地图上显示报警图标，且鼠标经过报警图标时，显示报警的详细信息 ***/
+
+                                if (alarm[i] == "1") {
+
+                                    var alarmMarker = new BMap.Marker(new BMap.Point(longitude[i],latitude[i]),{icon:new BMap.Icon("/ILTS/images/alarm.png", new BMap.Size(20, 20))});  // 创建自定义报警图标
+
+                                    var alarmContent = '<div><img style="float:right;margin:2px" id="alarmInfo" src="/ILTS/images/alarm.png" width="30" height="30"/><p style="margin:0;line-height:1.5;font-size:13px;text-indent:2em"><br/>捆包号：'+goodsPackage+'<br/>报警类型：终端拆除报警<br/>报警时间：2017-05-05 09:32:35'+
+
+                                        '<br/><a style="float:right;margin:10px" href="/ILTS/alarmManage/undealedAlarm.html">报警详情</a></p></div>';
+
+                                    map.addOverlay(alarmMarker); // 将报警图标添加到地图中
+
+                                    addMouseoverHandler2(alarmContent, alarmMarker); //添加鼠标滑过报警图标时显示报警详情的事件
+
+                                }
+
+                            }
+
+                        }
+
+                    });
+
+                }
+
+            }
+
+        },
+
+        error:function(e){
+
+            //	alert("获取物资信息失败");
+
+        }
+
+    });
+
+
+
+    /****** 鼠标滑过标注时显示详情的事件 *******/
+
+    var opts = {
+
+        width : 260,     // 信息窗口宽度
+
+        height: 200,     // 信息窗口高度
+
+        title : "<b>物资信息</b>" , // 信息窗口标题
+
+        enableMessage:true //设置允许信息窗发送短息
+
+    };
+
+
+
+    function addMouseoverHandler(content,marker){
+
+        /***** 鼠标滑过事件 ******/
+
+        marker.addEventListener("mouseover",function(e){
+
+            openInfo(content,e);
+
+        });
+
+
+
+        /***** 鼠标移开事件 *****/
+
+        marker.addEventListener("mouseout",function(e){
+
+            closeInfo(content,e);
+
+        });
+
+    }
+
+
+
+    /**** 鼠标滑过时打开详情弹出框 *****/
+
+    function openInfo(content,e){
+
+        var p = e.target;
+
+        var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+
+        var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象
+
+        map.openInfoWindow(infoWindow,point); //开启信息窗口
+
+    }
+
+
+
+    /**** 鼠标移开时关闭详情弹出框 *****/
+
+    function closeInfo(content,e){
+
+        var p = e.target;
+
+        var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+
+        var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象
+
+        map.closeInfoWindow(infoWindow,point); //关闭信息窗口
+
+    }
+
+
+
+    /******* 鼠标滑过标注时显示报警详情的事件 *******/
+
+    var alarmOpts = {
+
+        width : 260,     // 信息窗口宽度
+
+        height: 160,     // 信息窗口高度
+
+        title : "<b>报警信息</b>" , // 信息窗口标题
+
+        enableMessage:true//设置允许信息窗发送短息
+
+    };
+
+
+
+    function addMouseoverHandler2(alarmContent, alarmMarker){
+
+        alarmMarker.addEventListener("mouseover",function(e){
+
+            openInfo2(alarmContent, e)
+
+        });
+
+    }
+
+
+
+    function openInfo2(alarmContent, e){
+
+        var p = e.target;
+
+        var point2 = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+
+        var infoWindow2 = new BMap.InfoWindow(alarmContent, alarmOpts);  // 创建信息窗口对象
+
+        map.openInfoWindow(infoWindow2, point2); //开启信息窗口
+
+    }
+
+</script>

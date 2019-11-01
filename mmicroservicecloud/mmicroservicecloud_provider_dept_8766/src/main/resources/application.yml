@@ -1,0 +1,51 @@
+server:
+
+  port: 8766
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.springcloud.entity    # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/*.xml                       # mapper映射文件
+
+
+
+spring:
+
+  application:
+    name: service-hi
+
+  datasource:
+    type: org.apache.commons.dbcp2.BasicDataSource           # 当前数据源操作类型
+    driver-class-name: com.mysql.jdbc.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:3306/clouddb03?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=utf-8              # 数据库名称
+    username: root
+    password: 323900llmT
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200
+
+
+
+eureka:
+
+  client:
+    hostname: ${spring.cloud.client.address}
+    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka8761.com:8761/eureka/,http://eureka8764.com:8764/eureka/,http://eureka8763.com:8763/eureka/
+  instance:
+    instance-id: eurekaClient
+#    prefer-ip-address: true     #访问路径可以显示IP地址
+
+info:
+  app:
+    name: kimi-microservicecloud
+  company:
+    name: www.kimi.com
+  build:
+    artifactId: $project.artifactId$
+    version: $project.version$

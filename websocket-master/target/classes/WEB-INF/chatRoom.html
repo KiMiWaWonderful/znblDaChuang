@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>辩论室</title>
+    <link rel="stylesheet" href="css/chatRoom.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/chatRoom.js"></script>
+  </head>
+
+  <body>
+
+    <div class="loading">
+      <img src="images/loading.gif" alt="loading-img">
+    </div>
+
+    <div>
+
+      <div class="bigcontainer">
+        <div class="chatbox">
+          <div class="chatleft">
+            <div class="top">
+              <span style="margin-left: 5%;">辩题题目</span>
+            </div>
+
+            <div class="center">
+              <div class="positive ing">
+                <div class="heading"><span>正方</span></div>
+                <ul class="userList">
+                  <li class="unselected" id="role1" data-role="1">
+                    <div><i class="fa fa-plus-circle"></i></div>
+                  </li>
+                  <li class="unselected" id="role2" data-role="2">
+                    <div><i class="fa fa-plus-circle"></i></div>
+                  </li>
+                  <li class="unselected" id="role3" data-role="3">
+                    <div><i class="fa fa-plus-circle"></i></div>
+                  </li>
+                  <li class="unselected" id="role4" data-role="4">
+                    <div><i class="fa fa-plus-circle"></i></div>
+                  </li>
+                </ul>
+              </div>
+              <span class="vs" style="margin-left: 47%;font-size: 35px;">vs</span>
+              <div class="negative">
+                <div class="heading"><span>反方</span></div>
+                <ul class="userList">
+                  <li class="unselected" id="role-1" data-role="-1">
+                    <div><i class="fa fa-plus-circle"></i></div>
+                  </li>
+                  <li class="unselected" id="role-2" data-role="-2">
+                    <div><i class="fa fa-plus-circle"></i></div>
+                  </li>
+                  <li class="unselected" id="role-3" data-role="-3">
+                    <div><i class="fa fa-plus-circle"></i></div>
+                  </li>
+                  <li class="unselected" id="role-4" data-role="-4">
+                    <div><i class="fa fa-plus-circle"></i></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer">
+
+            </div>
+          </div>
+
+          <div class="chatright">
+            <div class="top">
+              <span class="nums">在线观看人数：<span class="num">0</span></span>
+              <i class="fas fa-ellipsis-v"></i>
+              <div id="more">
+                <button class="exit">退出</button>
+                <button class="more">更多</button>
+              </div>
+            </div>
+
+            <div class="center">
+              <ul class="chatMsg">
+                <li>
+                  <div>
+                    <img class="msgleft" style="border-radius: 20px; vertical-align: top;" src="http://placehold.it/40x40">
+                    <p class="msgcard msgleft">This message on the left!aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="msgright">
+                    <img class="msgright" style="border-radius: 20px; vertical-align: top;" src="http://placehold.it/40x40">
+                    <p class="msgcard msgright">This message on the right!This message on the right!This message on the right!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <img class="msgleft" style="border-radius: 20px; vertical-align: top;" src="http://placehold.it/40x40">
+                    <p class="msgcard msgleft">This is a long message! This is a long message! This is a long left message!</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="msgright">
+                    <img class="msgright" style="border-radius: 20px; vertical-align: top;" src="http://placehold.it/40x40">
+                    <p class="msgcard msgright">This message on the right!</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <img class="msgleft" style="border-radius: 20px; vertical-align: top;" src="http://placehold.it/40x40">
+                    <p class="msgcard msgleft">This is a long message! This is a long message! This is a long left message!</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="msgright">
+                    <img class="msgright" style="border-radius: 20px; vertical-align: top;" src="http://placehold.it/40x40">
+                    <p class="msgcard msgright">This message on the right!This message on the right!This message on the right!</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer">
+              <textarea id="textarea" rows="7" cols="40" maxlength="2048" style="width: 100%; height: 58%; font-size: 16px; resize: none; border: none; padding: 20px; " placeholder="请在此输入要发送的内容..."></textarea>
+              <button id="test" class="btn btn-primary">测试</button>
+              <button class="finishbtn">结束</button>
+              <button class="sendbtn">发送</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div id="nullMsg"><span style="color: #ffffff;align-self: center;">不能发送空的内容哦~</span></div>
+      <div id="forbiddenMsg"><span style="color: #ffffff;align-self: center;">现在还没到你发言哦~</span></div>
+      <div id="failMsg"><span style="color: #ffffff;align-self: center;">连接服务器失败~</span></div>
+      <!-- 按钮触发模态框 -->
+      <button class="btn btn-primary btn-lg" style="z-index: 1;position: fixed;bottom: 10%;" data-toggle="modal" data-target="#endModal" data-backdrop="static">开始演示模态框</button>
+      <!-- 结束模态框（Modal） -->
+      <div class="modal fade" id="endModal" tabindex="-1" role="dialog" aria-labelledby="endModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="endModalLabel">快选出你支持的一方吧！</h4>
+            </div>
+            <div class="modal-body">
+              <form>
+                <label>
+              <input class="radio positiveRadio" type="radio" name="sex" value="1" checked>正方
+            </label>
+
+                <br>
+                <label>
+              <input class="radio negativeRadio" type="radio" name="sex" value="0">反方
+            </label>
+
+              </form>
+            </div>
+            <div class="modal-footer">
+              <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+              <button type="button" class="btn btn-primary" data-dismiss="modal">选好了</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+      </div>
+
+      <!-- 选择对手模态框 -->
+      <button class="btn btn-primary btn-lg" style="z-index: 1;position: fixed;bottom: 10%;" data-toggle="modal" data-target="#chooseModal" data-backdrop="static">第二模态框</button>
+      <div class="modal fchooseModal" tabindex="-1" role="dialog" aria-labelledby="chooseLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="chooseLabel">选择一个人来回答你的问题</h4>
+            </div>
+            <div class="modal-body">
+              <form id="modal-form">
+                <label><input class="radio positiveRadio" type="radio" name="roleId" value="1" checked>正方1</label>
+                <br>
+                <label><input class="radio negativeRadio" type="radio" name="roleId" value="0">正方2</label>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+              <button id="confirmBtn" type="button" class="btn btn-primary" data-dismiss="modal">选好了</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+      </div>
+
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="TryNettyAgain:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="TryNettyAgain-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="TryNettyAgain:war exploded" />
+    </root>
+  </artifact>
+</component>

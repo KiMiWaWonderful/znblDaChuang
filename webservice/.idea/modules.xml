@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jaxrs_client/jaxrs_client.iml" filepath="$PROJECT_DIR$/jaxrs_client/jaxrs_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jaxrs_server/jaxrs_server.iml" filepath="$PROJECT_DIR$/jaxrs_server/jaxrs_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jaxrs_spring_client/jaxrs_spring_client.iml" filepath="$PROJECT_DIR$/jaxrs_spring_client/jaxrs_spring_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jaxrs_spring_server/jaxrs_spring_server.iml" filepath="$PROJECT_DIR$/jaxrs_spring_server/jaxrs_spring_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_client/spring_client.iml" filepath="$PROJECT_DIR$/spring_client/spring_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_server/spring_server.iml" filepath="$PROJECT_DIR$/spring_server/spring_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webclient/webclient.iml" filepath="$PROJECT_DIR$/webclient/webclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/websservice/webserver.iml" filepath="$PROJECT_DIR$/websservice/webserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webservice.iml" filepath="$PROJECT_DIR$/webservice.iml" />
+    </modules>
+  </component>
+</project>

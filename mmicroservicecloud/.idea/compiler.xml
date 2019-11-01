@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mmciroservicecloud_provider_dept_8765" />
+        <module name="mmicroservicecloud" />
+        <module name="mmicroservicecloud_api" />
+        <module name="mmicroservicecloud_consumer_dept_80" />
+        <module name="mmicroservicecloud_consumer_dept_feign" />
+        <module name="mmicroservicecloud_eureka" />
+        <module name="mmicroservicecloud_eureka_8762" />
+        <module name="mmicroservicecloud_eureka_8763" />
+        <module name="mmicroservicecloud_provider_dept_8001" />
+        <module name="mmicroservicecloud_provider_dept_8766" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="mmciroservicecloud_provider_dept_8765" target="9.0.4" />
+      <module name="mmicroservicecloud" target="9.0.4" />
+      <module name="mmicroservicecloud_api" target="9.0.4" />
+      <module name="mmicroservicecloud_consumer_dept_80" target="9.0.4" />
+      <module name="mmicroservicecloud_consumer_dept_feign" target="9.0.4" />
+      <module name="mmicroservicecloud_eureka" target="9.0.4" />
+      <module name="mmicroservicecloud_eureka_8762" target="9.0.4" />
+      <module name="mmicroservicecloud_eureka_8763" target="9.0.4" />
+      <module name="mmicroservicecloud_provider_dept_8001" target="9.0.4" />
+      <module name="mmicroservicecloud_provider_dept_8766" target="9.0.4" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

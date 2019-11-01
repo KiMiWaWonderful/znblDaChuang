@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mmciroservicecloud_provider_dept_8765/mmciroservicecloud_provider_dept_8765.iml" filepath="$PROJECT_DIR$/mmciroservicecloud_provider_dept_8765/mmciroservicecloud_provider_dept_8765.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mmicroservicecloud.iml" filepath="$PROJECT_DIR$/mmicroservicecloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mmicroservicecloud_api/mmicroservicecloud_api.iml" filepath="$PROJECT_DIR$/mmicroservicecloud_api/mmicroservicecloud_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mmicroservicecloud_consumer_dept_80/mmicroservicecloud_consumer_dept_80.iml" filepath="$PROJECT_DIR$/mmicroservicecloud_consumer_dept_80/mmicroservicecloud_consumer_dept_80.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mmicroservicecloud_consumer_dept_feign/mmicroservicecloud_consumer_dept_feign.iml" filepath="$PROJECT_DIR$/mmicroservicecloud_consumer_dept_feign/mmicroservicecloud_consumer_dept_feign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mmicroservicecloud_eureka/mmicroservicecloud_eureka.iml" filepath="$PROJECT_DIR$/mmicroservicecloud_eureka/mmicroservicecloud_eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mmicroservicecloud_eureka_8762/mmicroservicecloud_eureka_8762.iml" filepath="$PROJECT_DIR$/mmicroservicecloud_eureka_8762/mmicroservicecloud_eureka_8762.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mmicroservicecloud_eureka_8763/mmicroservicecloud_eureka_8763.iml" filepath="$PROJECT_DIR$/mmicroservicecloud_eureka_8763/mmicroservicecloud_eureka_8763.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mmicroservicecloud_provider_dept_8001/mmicroservicecloud_provider_dept_8001.iml" filepath="$PROJECT_DIR$/mmicroservicecloud_provider_dept_8001/mmicroservicecloud_provider_dept_8001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mmicroservicecloud_provider_dept_8766/mmicroservicecloud_provider_dept_8766.iml" filepath="$PROJECT_DIR$/mmicroservicecloud_provider_dept_8766/mmicroservicecloud_provider_dept_8766.iml" />
+    </modules>
+  </component>
+</project>

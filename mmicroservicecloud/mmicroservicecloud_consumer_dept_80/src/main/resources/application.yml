@@ -1,0 +1,12 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://eureka8761.com:8761/eureka/,http://eureka8763.com:8763/eureka/,http://eureka8764.com:8764/eureka/
+
+spring:
+  application:
+    name: ribbon_consumer

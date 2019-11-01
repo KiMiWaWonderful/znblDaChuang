@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="znbl:war">
+    <output-path>E:/大创/项目代码/znbl/target</output-path>
+    <root id="archive" name="znbl.war">
+      <element id="artifact" artifact-name="znbl:war exploded" />
+    </root>
+  </artifact>
+</component>
